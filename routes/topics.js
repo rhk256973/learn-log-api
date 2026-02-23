@@ -12,4 +12,10 @@ router.get('/:id', topicController.getTopicById);
 // Create topic
 router.post('/', topicController.createTopic);
 
+// Update topic
+router.put('/:id', topicController.updateTopic);
+
+// Delete topic
+router.delete('/:id', topicController.deleteTopic);
+
 module.exports = router;

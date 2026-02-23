@@ -53,8 +53,44 @@ const topicController = {
     } catch (err) {
       res.status(500).json({ error: err.message });
     }
+  },
+
+  // PUT /topics/:id
+  updateTopic: async (req, res) => {
+    const { title, goal, status } = req.body;
+
+    if (!title) {
+      return res.status(400).json({ message: 'title is required' });
+    }
+
+    try {
+      const affected = await Topic.updateTopic(req.params.id, title, goal, status);
+
+      if (affected === 0) {
+        return res.status(404).json({ message: 'Topic not found' });
+      }
+
+      res.json({ status: 'success', message: 'Topic updated' });
+    } catch (err) {
+      res.status(500).json({ error: err.message });
+    }
+  },
+
+  // DELETE /topics/:id
+  deleteTopic: async (req, res) => {
+    try {
+      const affected = await Topic.deleteTopic(req.params.id);
+
+      if (affected === 0) {
+        return res.status(404).json({ message: 'Topic not found' });
+      }
+
+      res.json({ status: 'success', message: 'Topic deleted' });
+    } catch (err) {
+      res.status(500).json({ error: err.message });
+    }
   }
 
 };
-
+  
 module.exports = topicController;
