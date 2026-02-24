@@ -2,7 +2,7 @@ const Topic = require('../models/Topic');
 
 const topicController = {
 
-  // GET /topics
+  // GET /get all topics
   getAllTopics: async (req, res) => {
     try {
       const topics = await Topic.getAllTopics();
@@ -12,7 +12,7 @@ const topicController = {
     }
   },
 
-  // GET /topics/:id
+  // GET /get topics/:id
   getTopicById: async (req, res) => {
     try {
       const topic = await Topic.getTopicById(req.params.id);
@@ -27,13 +27,14 @@ const topicController = {
     }
   },
 
-  // POST /topics
+  // POST /create topics
   createTopic: async (req, res) => {
-    const { user_id, title, goal, status } = req.body;
+    const user_id = req.user.id;   // from JWT token
+    const { title, goal, status } = req.body;
 
-    if (!user_id || !title) {
+    if (!title) {
       return res.status(400).json({
-        message: 'user_id and title are required'
+        message: 'title is required'
       });
     }
 

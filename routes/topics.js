@@ -2,20 +2,21 @@ var express = require('express');
 var router = express.Router();
 
 const topicController = require('../controllers/topicController');
+const auth = require('../middleware/auth');
 
-// Get all topics
+// Get all topics (no login needed - public)
 router.get('/', topicController.getAllTopics);
 
-// Get topic
+// Get topic (no login needed - public)
 router.get('/:id', topicController.getTopicById);
 
-// Create topic
-router.post('/', topicController.createTopic);
+// Create topic (login required - private)
+router.post('/', auth, topicController.createTopic);
 
-// Update topic
-router.put('/:id', topicController.updateTopic);
+// Update topic (login required - private)
+router.put('/:id', auth, topicController.updateTopic);
 
-// Delete topic
-router.delete('/:id', topicController.deleteTopic);
+// Delete topic (login required - private)
+router.delete('/:id', auth, topicController.deleteTopic);
 
 module.exports = router;
