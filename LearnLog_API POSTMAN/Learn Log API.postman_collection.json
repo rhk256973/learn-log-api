@@ -1,0 +1,319 @@
+{
+  "info": {
+    "_postman_id": "cf90eba6-3307-40b9-a250-9349c387a65c",
+    "name": "Learn Log API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "45426399",
+    "_collection_link": "https://go.postman.co/collection/45426399-cf90eba6-3307-40b9-a250-9349c387a65c?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "Check point",
+      "item": [
+        {
+          "name": "Hello World",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3000",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000"
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Auth",
+      "item": [
+        {
+          "name": "POST register",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"email\": \"Logan@gmail.com\",\r\n  \"password\": \"123456\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3000/users/register",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "users",
+                "register"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "POST Login (get token)",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"email\": \"Logan@gmail.com\",\r\n  \"password\": \"123456\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3000/users/login",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "users",
+                "login"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Topics",
+      "item": [
+        {
+          "name": "POST Create Topic (JWT)",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwiZW1haWwiOiJMb2dhbkBnbWFpbC5jb20iLCJpYXQiOjE3NzE5NDQ0OTMsImV4cCI6MTc3MTk0ODA5M30.SQqAlqQwza8Xen6NDkUIF6CkGlLApPbEI8Zv8uIRzx4",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"title\": \"TEST JWT\",\r\n  \"goal\": \"Add new topic and check JWT is working\",\r\n  \"status\": \"active\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3000/topics",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "topics"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "PUT Update Topic (JWT)",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwiZW1haWwiOiJMb2dhbkBnbWFpbC5jb20iLCJpYXQiOjE3NzE5NDQ0OTMsImV4cCI6MTc3MTk0ODA5M30.SQqAlqQwza8Xen6NDkUIF6CkGlLApPbEI8Zv8uIRzx4",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"title\": \"TEST JWT (updated)\",\r\n  \"goal\": \"Add new topic and check JWT is working (updated)\",\r\n  \"status\": \"active\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3000/topics/5",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "topics",
+                "5"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "DELETE Delete Topic (JWT)",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwiZW1haWwiOiJMb2dhbkBnbWFpbC5jb20iLCJpYXQiOjE3NzE5NDQ0OTMsImV4cCI6MTc3MTk0ODA5M30.SQqAlqQwza8Xen6NDkUIF6CkGlLApPbEI8Zv8uIRzx4",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3000/topics/5",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "topics",
+                "5"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Entries",
+      "item": [
+        {
+          "name": "POST Create Entry (JWT)",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwiZW1haWwiOiJMb2dhbkBnbWFpbC5jb20iLCJpYXQiOjE3NzE5NDQ0OTMsImV4cCI6MTc3MTk0ODA5M30.SQqAlqQwza8Xen6NDkUIF6CkGlLApPbEI8Zv8uIRzx4",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"topic_id\": 1,\r\n  \"note\": \"first entry note from Postman\",\r\n  \"minutes\": 30\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3000/entries",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "entries"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "PUT Update Entry (JWT)",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwiZW1haWwiOiJMb2dhbkBnbWFpbC5jb20iLCJpYXQiOjE3NzE5NDQ0OTMsImV4cCI6MTc3MTk0ODA5M30.SQqAlqQwza8Xen6NDkUIF6CkGlLApPbEI8Zv8uIRzx4",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"topic_id\": 1,\r\n  \"note\": \"first entry note from Postman (updated)\",\r\n  \"minutes\": 50\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3000/entries/3",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "entries",
+                "3"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "DELETE Delete Entry (JWT)",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwiZW1haWwiOiJMb2dhbkBnbWFpbC5jb20iLCJpYXQiOjE3NzE5NDQ0OTMsImV4cCI6MTc3MTk0ODA5M30.SQqAlqQwza8Xen6NDkUIF6CkGlLApPbEI8Zv8uIRzx4",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3000/entries/3",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "entries",
+                "3"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    }
+  ]
+}
